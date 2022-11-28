@@ -16,11 +16,12 @@ function App() {
     //   setData(JSON.parse(decode(query)))
     // }
     // PRODUCCION
-    console.log(window.location.pathname)
+    // console.log(window.location.pathname.split('/rides/')[1])
     if (window.location.pathname.split('/rides/')[1]) {
+      console.log('entro', JSON.parse(decode(window.location.pathname.split("/rides/")[1])))
       setData(JSON.parse(decode(window.location.pathname.split("/rides/")[1])))
     }
-    setLoader(true)
+    setLoader(false)
   }, []);
   return (
     <div className="container">
