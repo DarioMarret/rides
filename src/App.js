@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import './App.css';
 import {useState, useEffect} from 'react';
-import { encode, decode } from 'js-base64';
+import { decode } from 'js-base64';
 
 function App() {
  
@@ -20,7 +20,7 @@ function App() {
     if (window.location.pathname.split('/rides/')[1]) {
       setData(JSON.parse(decode(window.location.pathname.split("/rides/")[1])))
     }
-    setLoader(false)
+    setLoader(true)
   }, []);
   return (
     <div className="container">
