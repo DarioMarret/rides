@@ -16,9 +16,9 @@ function App() {
     //   setData(JSON.parse(decode(query)))
     // }
     // PRODUCCION
-    console.log(window.location.search)
-    if (window.location.search.split('?')[1]) {
-      setData(JSON.parse(decode(window.location.search.split("?")[1])))
+    console.log(window.location.pathname)
+    if (window.location.pathname.split('/rides/')[1]) {
+      setData(JSON.parse(decode(window.location.pathname.split("/rides/")[1])))
     }
     setLoader(false)
   }, []);
