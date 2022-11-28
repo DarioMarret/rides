@@ -94,6 +94,9 @@ function App() {
                 backgroundColor: '#292929',
               }}
             >
+            <div style={{
+                backgroundColor: '#292929',
+              }}>
               <tr className='factura_detalle_tabla_header'>
                 <th className='width-60 textleft padd-l-6'>Descripción</th>
                 <th className='pad-2'>Cant.</th>
@@ -101,6 +104,7 @@ function App() {
                 <th className='pad-2'>Desc.</th>
                 <th className='pad-2'>Total</th>
               </tr>
+            </div>
             </thead>
             <tbody>
               {
