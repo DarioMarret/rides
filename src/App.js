@@ -16,6 +16,7 @@ function App() {
     //   setData(JSON.parse(decode(query)))
     // }
     // PRODUCCION
+    console.log(window.location.search)
     if (window.location.search.split('?')[1]) {
       setData(JSON.parse(decode(window.location.search.split("?")[1])))
     }
