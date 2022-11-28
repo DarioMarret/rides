@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import './App.css';
 import {useState, useEffect} from 'react';
 import { encode, decode } from 'js-base64';
