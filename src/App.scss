@@ -1,0 +1,119 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+  width: 100%;
+}
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.bold {
+  font-weight: bold;
+}
+.pad-2{
+  padding: .5rem;
+}
+.width-60{
+  width: 60%;
+}
+.textleft {
+  text-align: left;
+}
+.textcenter {
+  text-align: center;
+}
+.padd-l-6 {
+  padding-left: .5rem;
+}
+
+// w-3/5 border border-slate-900 py-10 px-6 py-4 rounded-xl
+.factura {
+  width: 55%;
+  height: auto;
+  border: 1px solid #292929;
+  border-radius: 10px;
+  padding: 2rem;
+  &_totalescontainer {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    &_tabla{
+      width: 50%;
+      margin-top: 10px;
+      border-collapse: collapse;
+      &_hearder{
+        border-bottom: 1px solid #292929;
+      }
+      &_fila{
+        padding: 1rem;
+      }
+    }
+  }
+  &_empresa {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &_datos {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      &_logo {
+        width: 10rem;
+        height: auto;
+        border-radius: 10px;
+      }
+      &_info {
+        margin-left: 2rem;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    &_infotrib {
+      background-color: rgb(190, 190, 190);
+      text-align: center;
+      border-radius: 10px;
+      padding: 2rem;
+    }
+  }
+  &_cliente {
+    width: 100%;
+    display: flex;
+    padding: 2rem 0;
+    align-items: center;
+    &_dato {
+      width: 100%;
+    }
+  }
+  &_detalle {
+    width: 100%;
+    height: auto;
+    &_tabla {
+      width: 100%;
+      border-collapse: collapse;
+      border: 2px #c1c1c1 solid;
+      &_header {
+        background-color: #e1e1e1;
+        text-align: center;
+        &_item {
+          border: 1px #c1c1c1 solid;
+          padding: 1rem;
+        }
+      }
+      &_fila {
+        padding: 1rem 0;
+        &_elem {
+          color: #363636;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
