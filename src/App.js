@@ -23,6 +23,8 @@ function App() {
     }
     setLoader(false)
   }, []);
+
+  
   return (
     <div className="container">
       {loader ? <div></div>:
