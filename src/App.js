@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
-import './App.css';
-import {useState, useEffect} from 'react';
 import { decode } from 'js-base64';
+import { useEffect, useState } from 'react';
+import './App.css';
 
 function App() {
  
@@ -21,6 +21,20 @@ function App() {
       console.log('entro', JSON.parse(decode(window.location.search.split("?")[1])))
       setData(JSON.parse(decode(window.location.search.split("?")[1])))
     }
+    if (window.location.href.split('/pdf/')[1]) {
+      let deco = decode(window.location.href.split('/pdf/')[1])
+      console.log("Decode: ",deco)
+      let DecoPar = JSON.parse(deco)
+      console.log("DecoPar: ", DecoPar)
+      console.log("DecoPar: ", typeof DecoPar)
+      console.log(decode(window.location.href.split('/pdf/')[1]))
+      setData(DecoPar)
+    }
+    // console.log(window.location.search)
+    // if (window.location.search.split('?')[1]) {
+    //   console.log('entro', JSON.parse(decode(window.location.search.split("?")[1])))
+    //   setData(JSON.parse(decode(window.location.search.split("?")[1])))
+    // }
     setLoader(false)
   }, []);
 
@@ -112,7 +126,11 @@ function App() {
                 return <tr key={index} className=''>
                   <td className='pad-2 textleft  padd-l-6 '>{detail.descripcion}</td>
                   <td className='pad-2 factura_detalle_tabla_fila_elem'>{detail.cantidad}</td>
-                  <td className='pad-2 factura_detalle_tabla_fila_elem'>{detail.precioUnitario}</td>
+                  <td className='pad-2 factura_detalle_tabla_fila_elem'>
+                    {
+                      detail.impuestos.impuesto[0].tarifa !== "0.00"? "I  ": ""
+                    }
+                    {detail.precioUnitario}</td>
                   <td className='pad-2 factura_detalle_tabla_fila_elem'>{detail.descuento}</td>
                   <td className='pad-2 factura_detalle_tabla_fila_elem'>{detail.precioTotalSinImpuesto}</td>
                 </tr>
@@ -123,13 +141,21 @@ function App() {
           <div className='factura_totalescontainer'>
             <table className='factura_totalescontainer_tabla'>
               <tr className='factura_totalescontainer_tabla_hearder'>
+                <th>Total 0%</th>
                 <th>Total sin I.V.A.</th>
                 <th>I.V.A.</th>
-                <th>Total con I.V.A.</th>
+                <th>Total</th>
               </tr>
               <tr className=''>
+                <td className='textcenter'>${
+                  data.infoFactura.totalConImpuestos.totalImpuesto.length > 1 ?
+                  parseFloat(data.infoFactura.totalConImpuestos.totalImpuesto[1].valor).toFixed(2) : 0
+                }</td>
                 <td className='textcenter'>${data.infoFactura.totalSinImpuestos}</td>
-                <td className='textcenter'>12.00%</td>
+                <td className='textcenter'>${
+                  data.infoFactura.totalConImpuestos.totalImpuesto.length >= 1 ?
+                  parseFloat(data.infoFactura.totalConImpuestos.totalImpuesto[0].valor).toFixed(2) : 0
+                }</td>
                 <td className='textcenter'>${data.infoFactura.importeTotal}</td>
               </tr>
             </table>
