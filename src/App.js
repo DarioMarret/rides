@@ -67,6 +67,11 @@ function App() {
                   fontSize: '12px',
                 }}
               >{data.infoFactura.obligadoContabilidad === 'SI' ? 'Obligado a llevar contabilidad' : 'No obligado a llevar contabilidad'}</p>
+               <p
+                style={{
+                  fontSize: '12px',
+                }}
+              >CONTRIBUYENTE RÉGIMEN RIMPE</p>
             </div>
           </div>
           <div className='factura_empresa_infotrib'
