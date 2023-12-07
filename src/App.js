@@ -29,7 +29,7 @@ function App() {
       let deco = decode(window.location.href.split('/pdf/')[1])
       // console.log("Decode: ",deco)
       let DecoPar = JSON.parse(deco)
-      // console.log("DecoPar: ", DecoPar)
+      console.log("DecoPar: ", DecoPar)
       // console.log("DecoPar: ", typeof DecoPar)
       // console.log(decode(window.location.href.split('/pdf/')[1]))
       setData(DecoPar)
@@ -62,9 +62,11 @@ function App() {
           >
             {
               // validar si el dominio de la imagen es codigomarret.online
-              data.logo_empresa && data.logo_empresa.includes('codigomarret.online') ?
-                <img className='factura_empresa_datos_logo' src={data.logo_empresa} /> :
-                <img className='factura_empresa_datos_logo' src={logo} />
+              data.logo_empresa.split("/").includes("codigomarret.online") ?
+              // si es asi, mostrar la imagen
+              <img className='factura_empresa_datos_logo' src={logo} />:
+              // si no, mostrar la imagen por defecto
+              <img className='factura_empresa_datos_logo' src={data.logo_empresa} /> 
             }
             {/* <img className='factura_empresa_datos_logo' src={data.logo_empresa} /> */}
             <div className='factura_empresa_datos_info'>
