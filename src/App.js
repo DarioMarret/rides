@@ -2,6 +2,8 @@
 import { decode } from 'js-base64';
 import { useEffect, useState } from 'react';
 import './App.css';
+import logo from './logo.jpg';
+
 
 function App() {
  
@@ -9,6 +11,8 @@ function App() {
     
   });
   const [loader, setLoader] = useState(true);
+
+  
   useEffect(() => {
     // PRUEBAS
     // const query = link.split('?')[1]
@@ -16,18 +20,18 @@ function App() {
     //   setData(JSON.parse(decode(query)))
     // }
     // PRODUCCION
-    console.log(window.location.search)
+    // console.log(window.location.search)
     if (window.location.search.split('?')[1]) {
-      console.log('entro', JSON.parse(decode(window.location.search.split("?")[1])))
+      // console.log('entro', JSON.parse(decode(window.location.search.split("?")[1])))
       setData(JSON.parse(decode(window.location.search.split("?")[1])))
     }
     if (window.location.href.split('/pdf/')[1]) {
       let deco = decode(window.location.href.split('/pdf/')[1])
-      console.log("Decode: ",deco)
+      // console.log("Decode: ",deco)
       let DecoPar = JSON.parse(deco)
-      console.log("DecoPar: ", DecoPar)
-      console.log("DecoPar: ", typeof DecoPar)
-      console.log(decode(window.location.href.split('/pdf/')[1]))
+      // console.log("DecoPar: ", DecoPar)
+      // console.log("DecoPar: ", typeof DecoPar)
+      // console.log(decode(window.location.href.split('/pdf/')[1]))
       setData(DecoPar)
     }
     // console.log(window.location.search)
@@ -36,6 +40,8 @@ function App() {
     //   setData(JSON.parse(decode(window.location.search.split("?")[1])))
     // }
     setLoader(false)
+
+    console.log(data)
   }, []);
 
 
@@ -54,7 +60,13 @@ function App() {
               flexDirection: 'column',
             }}
           >
-            <img className='factura_empresa_datos_logo' src={data.logo_empresa} />
+            {
+              // validar si el dominio de la imagen es codigomarret.online
+              data.logo_empresa && data.logo_empresa.includes('codigomarret.online') ?
+                <img className='factura_empresa_datos_logo' src={data.logo_empresa} /> :
+                <img className='factura_empresa_datos_logo' src={logo} />
+            }
+            {/* <img className='factura_empresa_datos_logo' src={data.logo_empresa} /> */}
             <div className='factura_empresa_datos_info'>
               <p className='bold'>{data.infoTributaria.nombreComercial}</p>
               <p
