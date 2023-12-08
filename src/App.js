@@ -2,7 +2,6 @@
 import { decode } from 'js-base64';
 import { useEffect, useState } from 'react';
 import './App.css';
-import logo from './logo.jpg';
 
 
 function App() {
@@ -60,15 +59,8 @@ function App() {
               flexDirection: 'column',
             }}
           >
-            {
-              // validar si el dominio de la imagen es codigomarret.online
-              data.logo_empresa.split("/").includes("codigomarret.online") ?
-              // si es asi, mostrar la imagen
-              <img className='factura_empresa_datos_logo' src={logo} />:
-              // si no, mostrar la imagen por defecto
-              <img className='factura_empresa_datos_logo' src={data.logo_empresa} /> 
-            }
             {/* <img className='factura_empresa_datos_logo' src={data.logo_empresa} /> */}
+            <img className='factura_empresa_datos_logo' src={data.logo_empresa} /> 
             <div className='factura_empresa_datos_info'>
               <p className='bold'>{data.infoTributaria.nombreComercial}</p>
               <p
