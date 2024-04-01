@@ -101,7 +101,7 @@ function App() {
                   justifyContent: 'space-between',
                 }}
               >
-                <p className='bold'>Ambiente: {data.infoTributaria.ambiente === '1' ? 'PRUEBA' : 'PRODUCCION'}</p>
+                <p className='bold'>Ambiente: {data.infoTributaria.ambiente === '1' ? 'PRUEBA ' : 'PRODUCCION '}</p>
                 <p className='bold'>Emisión: NORMAL</p>
               </div>
           </div>
