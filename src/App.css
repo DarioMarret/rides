@@ -17,6 +17,9 @@ html, body {
 .bold {
   font-weight: bold;
 }
+.bold_p{
+  padding: 1rem;
+}
 .pad-2{
   padding: .5rem;
 }
