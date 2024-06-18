@@ -113,7 +113,12 @@ function App() {
           </div>
           <div className='factura_cliente_dato'>
             <p><strong>Dirección:</strong> {data.infoFactura.direccionComprador}</p>
-            <p><strong>Cedula:</strong> {data.infoFactura.identificacionComprador}</p>
+            {/* <p><strong>Cedula:</strong> {data.infoFactura.identificacionComprador}</p> */}
+            {
+              String(data.infoFactura.identificacionComprador) === 10 ?
+              <p><strong>Cedula:</strong> {data.infoFactura.identificacionComprador}</p> :
+              <p><strong>RUC:</strong> {data.infoFactura.identificacionComprador}</p>
+            }
           </div>
         </div>
         <div className="factura_detalle">
